@@ -3,6 +3,8 @@ public interface IAnimal {
 
     double getWeight();
 
+    String getName();
+
     String toString();
 
 
