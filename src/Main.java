@@ -12,6 +12,14 @@ public class Main {
         while (true) {
             // Reading data using readLine
             String name = reader.readLine();
+
+            try {
+                List<String> command = lexer.splitCMD(name);
+                IAnimal animal = new LandAnimal(command.get(0),command.get(1),command.get(2),command.get(3));
+                System.out.println(animal.toString());
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
             // Printing the read line
             System.out.println(name);
             List<String> command = lexer.splitCMD(name);
