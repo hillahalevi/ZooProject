@@ -31,7 +31,7 @@ public class RemoveAnimal extends InterferingCommands {
 
     @Override
     public String getDescription() {
-        return  "Remove animal :remove-animal--ANIMAL_WANTED";
+        return  "Remove animal : remove-animal--userName--ANIMAL_WANTED";
     }
 
     @Override

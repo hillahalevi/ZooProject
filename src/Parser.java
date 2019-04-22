@@ -5,6 +5,7 @@ import Commands.InterferingCommands.RemoveAnimal;
 import Commands.SpecificCommands.GetSpecificAnimalCommand;
 import Commands.SpecificCommands.GetSpecificAnimalFeedingTimeCommand;
 import Commands.SpecificCommands.GetSpecificDayCommand;
+import DataBases.UsersDataBase;
 import Intrefaces.ICommand;
 
 import java.util.HashMap;
@@ -28,11 +29,11 @@ public class Parser {
     }
 
     private void setCommandHashMap() {
+        commandHashMap.put("add-animal", new AddAnimal());
         commandHashMap.put("remove-animal", new RemoveAnimal());
         commandHashMap.put("Get-specific-animal", new GetSpecificAnimalCommand());
-        commandHashMap.put("Get-specific-animal-feeding-time", new GetSpecificAnimalFeedingTimeCommand());
         commandHashMap.put("Get-specific-day", new GetSpecificDayCommand());
-        commandHashMap.put("add-animal", new AddAnimal());
+        commandHashMap.put("Get-specific-animal-feeding-time", new GetSpecificAnimalFeedingTimeCommand());
         commandHashMap.put("Get-all-registered-animals", new GetAnimalsCommand());
         commandHashMap.put("Get-all-registered-users", new GetUsersCommand());
     }
@@ -41,12 +42,14 @@ public class Parser {
         if (commandHashMap.containsKey(cmdLine.get(0))) {
             ICommand command = commandHashMap.get(cmdLine.get(0));
             cmdLine.remove(0); //removes command
-            //TODO cmdline[0] now holds the user name  - register + thread
             if (cmdLine.contains("help")) {
-                //TODO CHECK FOR THE HELP FLAG
                 command.printDescription();
+                return;
             }
             try {
+                //TODO cmdline[0] now holds the user name  - register + thread
+                UsersDataBase.getInstance().addUser(cmdLine.get(0));
+                cmdLine.remove(0);
                 command.execute(cmdLine);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -56,6 +59,16 @@ public class Parser {
         } else {
             throw new Exception("illegal command");
         }
+    }
+
+    public void getCommands(){
+        System.out.println("Commands Options:");
+        for( ICommand command: commandHashMap.values()){
+            command.printDescription();
+
+        }
+        System.out.println("present menu : menu");
+        System.out.println("exit system : exit--userName");
     }
 
 }

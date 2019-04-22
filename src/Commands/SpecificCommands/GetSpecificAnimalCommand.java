@@ -15,7 +15,7 @@ public class GetSpecificAnimalCommand extends SpecificCommand {
 
   @Override
    public String getDescription() {
-        return "Get specific animal :Get-specific-animal--ANIMAL_WANTED";
+        return "Get specific animal : Get-specific-animal--userName--ANIMAL_WANTED";
     }
 
 

@@ -32,7 +32,7 @@ public class UsersDataBase {
         }
         StringBuilder result = new StringBuilder("Users: ");
         for (String user : users) {
-            result.append(user).append(" ");
+            result.append(user).append(" | ");
 
         }
         return result.toString();
