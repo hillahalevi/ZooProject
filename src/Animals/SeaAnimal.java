@@ -1,3 +1,5 @@
+package Animals;
+
 public class SeaAnimal extends BaseAnimal {
     private double depth;
 

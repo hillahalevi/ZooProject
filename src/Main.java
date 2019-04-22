@@ -1,3 +1,7 @@
+import Animals.LandAnimal;
+import Animals.SeaAnimal;
+import Intrefaces.IAnimal;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,12 +15,12 @@ public class Main {
         Lexer lexer = Lexer.getInstance();
         while (true) {
             // Reading data using readLine
-            String name = reader.readLine();
+            String name = "jo--1.6--60--1.5--whale";
 
             try {
                 List<String> command = lexer.splitCMD(name);
-                IAnimal animal = new LandAnimal(command.get(0),command.get(1),command.get(2),command.get(3));
-                System.out.println(animal.toString());
+
+
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }

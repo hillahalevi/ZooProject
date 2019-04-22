@@ -1,3 +1,5 @@
+package Intrefaces;
+
 public interface IAnimal {
     double getHight();
 
@@ -6,6 +8,8 @@ public interface IAnimal {
     String getName();
 
     String toString();
+
+    //int compareTo(IAnimal o);
 
 
 }

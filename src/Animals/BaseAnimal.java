@@ -1,10 +1,14 @@
-public abstract class BaseAnimal implements IAnimal{
+package Animals;
+
+import Intrefaces.IAnimal;
+
+public abstract class BaseAnimal implements IAnimal {
     private String name;
     private double hight;
     private double weight;
     private String species;
 
-    public BaseAnimal(String name ,String height, String weight, String species)throws Exception{
+    BaseAnimal(String name, String height, String weight, String species)throws Exception{
         this.name=name;
         this.hight=evaluateNumber(height);
         this.weight=evaluateNumber(weight);
@@ -12,6 +16,7 @@ public abstract class BaseAnimal implements IAnimal{
 
 
     }
+
     public double getHight() {
         return hight;
     }
@@ -45,5 +50,5 @@ public abstract class BaseAnimal implements IAnimal{
 
 
 
-    //public void setTime()
+
 }
