@@ -1,6 +1,7 @@
 package DataBases;
 
 
+import Commands.InterferingCommands.CommandException;
 import Intrefaces.IAnimal;
 
 import java.util.HashMap;
@@ -18,31 +19,38 @@ public class AnimalDataBase {
         return ourInstance;
     }
 
-    public void addAnimal(IAnimal animal) throws Exception {
+    public void addAnimal(IAnimal animal) throws CommandException {
         if (animalHashMap.containsValue(animal)) {
-            throw new Exception("animal already defined in the system");
+            throw new CommandException("animal already defined in the system");
         }
         animalHashMap.put(animal.getName(), animal);
     }
 
-    public void removeAnimal(String name) throws Exception {
+    public void removeAnimal(String name) throws CommandException {
         if (animalHashMap.containsKey(name)) {
             animalHashMap.remove(name);
         } else {
-            throw new Exception("animal is not in the system");
+            throw new CommandException("animal is not in the system");
         }
     }
 
-    public IAnimal getAnimal(String name) throws Exception {
+    public IAnimal getAnimal(String name) throws CommandException {
         if (animalHashMap.containsKey(name)) {
             return animalHashMap.get(name);
         } else {
-            throw new Exception("animal is not in the system");
+            throw new CommandException("animal is not in the system");
         }
 
     }
 
-    public String getAllAnimals() {
+    public IAnimal getAnimal2(String name) throws CommandException {
+        if (!animalHashMap.containsKey(name)) {
+            throw new CommandException("animal is not in the system");
+        }
+        return animalHashMap.get(name);
+    }
+
+    public String getAllAnimals(){
         {
             if (animalHashMap.isEmpty()) {
                 return "no Animals";

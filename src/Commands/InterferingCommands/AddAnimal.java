@@ -12,15 +12,15 @@ public class AddAnimal extends InterferingCommands {
 
 
     @Override
-    public void validate(List<String> cmdLine) throws Exception {
+    public void validate(List<String> cmdLine) throws ValidationException {
         if (cmdLine.isEmpty()) {
-            throw new Exception("no animal to add");
+            throw new ValidationException("no animal to add"); //specific exceptions
         }
         if (cmdLine.size() < 5) {
-            throw new Exception("no specific kind of animal");
+            throw new ValidationException("no specific kind of animal");
         }
         if (cmdLine.size() > 6) {
-            throw new Exception("too many arguments");
+            throw new ValidationException("too many arguments");
         }
 
 
@@ -42,21 +42,21 @@ public class AddAnimal extends InterferingCommands {
     }
 
     @Override
-    public void doCommand(List<String> details) throws Exception {
+    public void doCommand(List<String> details) throws CommandException {
         IAnimal animal;
-        int kind = Integer.parseInt(details.get(details.size()-1));
+        int kind = Integer.parseInt(details.get(details.size()-1)); //think maybe use string then turn to enum
         /**
          * easy to add new kinds  adding cases and support on main menu
          */
         switch (kind) {
-            case 0:
+            case 0: //read baout factory and builder design patterns/ validator class
                 animal = new LandAnimal(details.get(0), details.get(1), details.get(2), details.get(3));
                 break;
             case 1:
                 animal = new SeaAnimal(details.get(0), details.get(1), details.get(2), details.get(3), details.get(5));
                 break;
             default:
-                throw new Exception("illegal kind of animal");
+                throw new CommandException("illegal kind of animal");
         }
 
         AnimalDataBase.getInstance().addAnimal(animal);

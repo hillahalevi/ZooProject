@@ -1,16 +1,17 @@
 package DataBases;
 
 import Animals.SeaAnimal;
+import Commands.InterferingCommands.CommandException;
 import Intrefaces.IAnimal;
 
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.time.DayOfWeek;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DaysPlanner {
     private HashMap<IAnimal, Day> animalDayHashMap;
+
     private List<Day> normalDays;
     private Day seaAnimalDay;
     private static DaysPlanner ourInstance = new DaysPlanner();
@@ -55,7 +56,7 @@ public class DaysPlanner {
      *
      * @param animal specific animal
      */
-    public void addAnimal(IAnimal animal) {
+    public void addAnimal(IAnimal animal) {//addAnimalToDay
         if (animal instanceof SeaAnimal) {
             seaAnimalDay.addAnimal(animal);
             animalDayHashMap.put(animal, seaAnimalDay);
@@ -83,6 +84,21 @@ public class DaysPlanner {
 
     }
 
+    public void myBalance()
+    {
+        HashMap<DayOfWeek,Day> days = new HashMap<>();
+        List<Day> collect1 = days.entrySet().stream()
+                .filter(e -> !e.getKey().equals(DayOfWeek.WEDNESDAY))
+                .map(Map.Entry::getValue)
+                .collect(Collectors.toList());
+        ArrayList<String> la = new ArrayList<String>();
+        la.add("jaja");
+        la.add("afafaf");
+        la.forEach(System.out::println);
+        List<Day> collect = la.stream().map(str -> new Day(str)).collect(Collectors.toList());
+    }
+
+
     /**
      * balance the list of normalDays after one day reduction bu reassign animal
      * from the day with most animals
@@ -107,7 +123,7 @@ public class DaysPlanner {
         normalDays.sort(Comparator.comparingInt(Day::getNumnerOfAnimals));
     }
 
-    public String getSpecificDay(String day) throws Exception {
+    public String getSpecificDay(String day) throws CommandException { //getAnimalsForDay, should return list
         if(seaAnimalDay.getName().equals(day)) {
             return seaAnimalDay.toString();
         }
@@ -116,17 +132,21 @@ public class DaysPlanner {
                 return day1.toString();
             }
         }
-        throw new Exception("illegal day ");
+        throw new CommandException("illegal day ");
     }
 
-    public String getSpecificAnimalFeedingTime(IAnimal animal) throws Exception {
+    public String getSpecificAnimalFeedingTime(IAnimal animal) throws CommandException {
         if(animalDayHashMap.containsKey(animal)){
             Day day= animalDayHashMap.get(animal);
             return day.getAnimalTime(animal);
 
         }else {
-            throw new Exception("animal is not in the system");
+            throw new CommandException("animal is not in the system");
         }
+
+    }
+
+    public void removeAllAnimals() {
 
     }
 }

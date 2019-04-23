@@ -1,6 +1,7 @@
 package Commands.SpecificCommands;
 
 import Commands.BasicCommand.*;
+import Commands.InterferingCommands.CommandException;
 
 import java.util.List;
 
@@ -18,5 +19,5 @@ public abstract class SpecificCommand extends BaseCommand {
 
 
 
-   public abstract void doCommand(List<String> details) throws Exception;
+   public abstract void doCommand(List<String> details) throws CommandException;
 }
