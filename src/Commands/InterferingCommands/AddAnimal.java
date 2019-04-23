@@ -38,7 +38,7 @@ public class AddAnimal extends InterferingCommands {
 
     @Override
     public String getDescription() {
-        return "Add animal : add-animal--userName--AnimalName--Height--Weight--OPTIONAL:depth--species--animal-kind(0-LandAnimal,1-SeaAnimal)\"";
+        return "Add animal : add-animal--userName--AnimalName--Height--Weight--OPTIONAL:depth--species--animal-kind(0-LandAnimal,1-SeaAnimal)";
     }
 
     @Override

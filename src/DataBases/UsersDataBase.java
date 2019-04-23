@@ -17,7 +17,7 @@ public class UsersDataBase {
 
     public void addUser(String name) throws Exception {
         if (isUser(name)) {
-            throw new Exception("user already defined in the system");
+            System.out.println(("user already defined in the system"));
         }
         users.add(name);
     }
