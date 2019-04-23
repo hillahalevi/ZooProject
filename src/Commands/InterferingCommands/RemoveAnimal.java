@@ -8,12 +8,12 @@ import java.util.List;
 
 public class RemoveAnimal extends InterferingCommands {
     @Override
-    public void validate(List<String> cmdLine) throws Exception {
+    public void validate(List<String> cmdLine) throws ValidationException {
         if(cmdLine.isEmpty()){
-            throw new Exception("no specific request found");
+            throw new ValidationException("no specific request found");
         }
         if (cmdLine.size() > 1) {
-            throw new Exception("too many arguments");
+            throw new ValidationException("too many arguments");
         }
 
 
@@ -35,7 +35,7 @@ public class RemoveAnimal extends InterferingCommands {
     }
 
     @Override
-    public void doCommand(List<String> details) throws Exception {
+    public void doCommand(List<String> details) throws CommandException {
        IAnimal animal = AnimalDataBase.getInstance().getAnimal(details.get(0));
        AnimalDataBase.getInstance().removeAnimal(details.get(0));
        DaysPlanner.getInstance().removeAnimal(animal);

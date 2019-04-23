@@ -25,9 +25,8 @@ public class GetAnimalsCommand extends BaseCommand {
     }
 
     @Override
-    public void execute(List<String> details) throws Exception {
+    public void execute(List<String> details){
         System.out.println(AnimalDataBase.getInstance().getAllAnimals());
-
     }
 
 

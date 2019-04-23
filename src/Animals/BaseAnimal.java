@@ -1,5 +1,6 @@
 package Animals;
 
+import Commands.InterferingCommands.CommandException;
 import Intrefaces.IAnimal;
 
 public abstract class BaseAnimal implements IAnimal {
@@ -8,7 +9,7 @@ public abstract class BaseAnimal implements IAnimal {
     private double weight;
     private String species;
 
-    BaseAnimal(String name, String height, String weight, String species)throws Exception{
+    BaseAnimal(String name, String height, String weight, String species)throws CommandException{
         this.name=name;
         this.hight=evaluateNumber(height);
         this.weight=evaluateNumber(weight);
@@ -29,10 +30,10 @@ public abstract class BaseAnimal implements IAnimal {
         return name;
     }
 
-    public double evaluateNumber(String num) throws Exception {
+    public double evaluateNumber(String num) throws CommandException {
         double number=Double.parseDouble(num);
         if(number<0){
-            throw new Exception("negative number not allowed");
+            throw new CommandException("negative number not allowed");
         }
         return number;
     }

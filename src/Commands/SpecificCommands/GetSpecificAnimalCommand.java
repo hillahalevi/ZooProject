@@ -1,5 +1,6 @@
 package Commands.SpecificCommands;
 
+import Commands.InterferingCommands.CommandException;
 import DataBases.AnimalDataBase;
 
 import java.util.List;
@@ -8,7 +9,7 @@ public class GetSpecificAnimalCommand extends SpecificCommand {
 
 
     @Override
-    public void doCommand(List<String> details) throws Exception {
+    public void doCommand(List<String> details) throws CommandException {
         System.out.println(AnimalDataBase.getInstance().getAnimal(details.get(0)));
 
     }
