@@ -1,3 +1,5 @@
+package main;
+
 import Commands.BasicCommand.GetAnimalsCommand;
 import Commands.BasicCommand.GetUsersCommand;
 import Commands.InterferingCommands.AddAnimal;
@@ -48,8 +50,6 @@ public class Parser {
             }
             try {
                 //TODO cmdline[0] now holds the user name  - register + thread
-                UsersDataBase.getInstance().addUser(cmdLine.get(0));
-                cmdLine.remove(0);
                 command.execute(cmdLine);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -68,7 +68,7 @@ public class Parser {
 
         }
         System.out.println("present menu : menu");
-        System.out.println("exit system : exit--userName");
+        System.out.println("exit system : userName--exit");
     }
 
 }

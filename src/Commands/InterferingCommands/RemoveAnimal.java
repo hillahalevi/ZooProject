@@ -31,11 +31,11 @@ public class RemoveAnimal extends InterferingCommands {
 
     @Override
     public String getDescription() {
-        return  "Remove animal : remove-animal--userName--ANIMAL_WANTED";
+        return  "Remove animal : userName--remove-animal--ANIMAL_WANTED";
     }
 
     @Override
-    public void doCommand(List<String> details) throws Exception {
+    synchronized public void doCommand(List<String> details) throws Exception {
        IAnimal animal = AnimalDataBase.getInstance().getAnimal(details.get(0));
        AnimalDataBase.getInstance().removeAnimal(details.get(0));
        DaysPlanner.getInstance().removeAnimal(animal);

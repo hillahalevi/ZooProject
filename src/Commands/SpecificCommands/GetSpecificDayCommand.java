@@ -12,6 +12,6 @@ public class GetSpecificDayCommand extends SpecificCommand {
 
     @Override
     public String getDescription() {
-        return "Get specific Day : Get-specific-day--userName--DAY_WANTED";
+        return "Get specific Day : userName--Get-specific-day--DAY_WANTED";
     }
 }

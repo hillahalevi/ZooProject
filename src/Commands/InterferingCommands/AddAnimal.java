@@ -38,11 +38,11 @@ public class AddAnimal extends InterferingCommands {
 
     @Override
     public String getDescription() {
-        return "Add animal : add-animal--userName--AnimalName--Height--Weight--OPTIONAL:depth--species--animal-kind(0-LandAnimal,1-SeaAnimal)";
+        return "Add animal : userName--add-animal--AnimalName--Height--Weight--OPTIONAL:depth--species--animal-kind(0-LandAnimal,1-SeaAnimal)";
     }
 
     @Override
-    public void doCommand(List<String> details) throws Exception {
+   synchronized public void doCommand(List<String> details) throws Exception {
         IAnimal animal;
         int kind = Integer.parseInt(details.get(details.size()-1));
         /**

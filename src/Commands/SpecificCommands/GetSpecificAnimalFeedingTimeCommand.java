@@ -15,6 +15,6 @@ public class GetSpecificAnimalFeedingTimeCommand extends SpecificCommand {
 
     @Override
     public String getDescription() {
-        return "Get specific Animal Feeding Time : Get-specific-animal-feeding-time--userName--Animal_WANTED";
+        return "Get specific Animal Feeding Time : userName--Get-specific-animal-feeding-time--Animal_WANTED";
     }
 }

@@ -21,7 +21,7 @@ public class GetAnimalsCommand extends BaseCommand {
     }
     @Override
     protected String getDescription() {
-        return "Get all registered animals : Get-all-registered-animals--userName ";
+        return "Get all registered animals : userName--Get-all-registered-animals ";
     }
 
     @Override

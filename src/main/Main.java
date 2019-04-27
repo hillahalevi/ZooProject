@@ -1,3 +1,8 @@
+package main;
+
+import DataBases.UserThread;
+import DataBases.UsersDataBase;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,6 +21,7 @@ public class Main {
             String line = reader.readLine();
             if (line.equals("exit")) {
                 //TODO exit threads ? - handle leave
+
                 System.out.println("system closed safely");
                 break;
             }
@@ -26,13 +32,12 @@ public class Main {
             }
             //split the line into command parts
             List<String> command = lexer.splitCMD(line);
-            try {
-                //try run the command
-                parser.runCommand(command);
-            } catch (Exception e) {
-                // print error description
-                System.out.println(e.getMessage());
-            }
+            //register user or get its thread
+            UserThread userThread= UsersDataBase.getInstance().getUserThread(command.remove(0));
+            //set command
+            userThread.setCmdLine(command);
+            //start and run
+            userThread.start();
         }
 
     }

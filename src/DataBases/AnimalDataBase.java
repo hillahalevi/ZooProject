@@ -19,7 +19,7 @@ public class AnimalDataBase {
     }
 
     public void addAnimal(IAnimal animal) throws Exception {
-        if (animalHashMap.containsValue(animal)) {
+        if (animalHashMap.containsKey(animal.getName())) {
             throw new Exception("animal already defined in the system");
         }
         animalHashMap.put(animal.getName(), animal);

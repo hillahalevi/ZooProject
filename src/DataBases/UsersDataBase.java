@@ -1,40 +1,49 @@
 package DataBases;
 
-import java.util.LinkedList;
-import java.util.List;
+
+
+import java.util.HashMap;
+
 
 public class UsersDataBase {
     private static UsersDataBase ourInstance = new UsersDataBase();
-    private List<String> users;
+
+    private HashMap<String, UserThread> userThreadHashMap;
+
 
     private UsersDataBase() {
-        users = new LinkedList<>();
+        userThreadHashMap=new HashMap<>();
     }
 
     public static UsersDataBase getInstance() {
         return ourInstance;
     }
 
-    public void addUser(String name) throws Exception {
-        if (isUser(name)) {
-            System.out.println(("user already defined in the system"));
-        }
-        users.add(name);
-    }
-
     private boolean isUser(String name) {
-        return users.contains(name);
+        return userThreadHashMap.containsKey(name);
     }
 
     public String getUsers() {
-        if (users.isEmpty()) {
+        if (userThreadHashMap.isEmpty()) {
             return "no users";
         }
         StringBuilder result = new StringBuilder("Users: ");
-        for (String user : users) {
+        for (String user : userThreadHashMap.keySet()) {
             result.append(user).append(" | ");
 
         }
         return result.toString();
+    }
+
+    public UserThread getUserThread(String name){
+            // create a new thread and register the user
+            UserThread userThread=new UserThread();
+            userThreadHashMap.put(name,userThread);
+            return userThread;
+
+    }
+
+    public void exit(){
+      //  while (userThreadHashMap.values().)
     }
 }
