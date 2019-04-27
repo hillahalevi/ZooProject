@@ -1,10 +1,10 @@
-package Commands.InterferingCommands;
+package commands.InterferingCommands;
 
-import Animals.LandAnimal;
-import Animals.SeaAnimal;
-import DataBases.AnimalDataBase;
-import DataBases.DaysPlanner;
-import Intrefaces.IAnimal;
+import animals.LandAnimal;
+import animals.SeaAnimal;
+import databases.AnimalDataBase;
+import databases.DaysPlanner;
+import intrefaces.IAnimal;
 
 import java.util.List;
 

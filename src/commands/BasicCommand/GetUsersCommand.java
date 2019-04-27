@@ -1,6 +1,6 @@
-package Commands.BasicCommand;
+package commands.BasicCommand;
 
-import DataBases.UsersDataBase;
+import databases.UsersDataBase;
 
 import java.util.List;
 

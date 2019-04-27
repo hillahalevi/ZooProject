@@ -1,7 +1,7 @@
 package main;
 
-import DataBases.UserThread;
-import DataBases.UsersDataBase;
+import databases.UserThread;
+import databases.UsersDataBase;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,6 +1,6 @@
-package Commands.SpecificCommands;
+package commands.SpecificCommands;
 
-import DataBases.AnimalDataBase;
+import databases.AnimalDataBase;
 
 import java.util.List;
 

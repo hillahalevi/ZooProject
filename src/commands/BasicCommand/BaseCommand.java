@@ -1,6 +1,6 @@
-package Commands.BasicCommand;
+package commands.BasicCommand;
 
-import Intrefaces.ICommand;
+import intrefaces.ICommand;
 
 
 public abstract class BaseCommand implements ICommand {

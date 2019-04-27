@@ -1,6 +1,6 @@
-package Commands.SpecificCommands;
+package commands.SpecificCommands;
 
-import DataBases.DaysPlanner;
+import databases.DaysPlanner;
 
 import java.util.List;
 

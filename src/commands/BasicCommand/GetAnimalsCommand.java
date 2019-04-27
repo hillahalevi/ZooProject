@@ -1,8 +1,8 @@
-package Commands.BasicCommand;
+package commands.BasicCommand;
 
-import Animals.SeaAnimal;
-import DataBases.AnimalDataBase;
-import Intrefaces.IAnimal;
+import animals.SeaAnimal;
+import databases.AnimalDataBase;
+import intrefaces.IAnimal;
 
 import java.util.List;
 

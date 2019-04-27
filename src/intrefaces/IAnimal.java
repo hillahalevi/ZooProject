@@ -1,4 +1,4 @@
-package Intrefaces;
+package intrefaces;
 
 public interface IAnimal {
     double getHight();

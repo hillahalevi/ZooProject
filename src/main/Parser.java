@@ -1,14 +1,13 @@
 package main;
 
-import Commands.BasicCommand.GetAnimalsCommand;
-import Commands.BasicCommand.GetUsersCommand;
-import Commands.InterferingCommands.AddAnimal;
-import Commands.InterferingCommands.RemoveAnimal;
-import Commands.SpecificCommands.GetSpecificAnimalCommand;
-import Commands.SpecificCommands.GetSpecificAnimalFeedingTimeCommand;
-import Commands.SpecificCommands.GetSpecificDayCommand;
-import DataBases.UsersDataBase;
-import Intrefaces.ICommand;
+import commands.BasicCommand.GetAnimalsCommand;
+import commands.BasicCommand.GetUsersCommand;
+import commands.InterferingCommands.AddAnimal;
+import commands.InterferingCommands.RemoveAnimal;
+import commands.SpecificCommands.GetSpecificAnimalCommand;
+import commands.SpecificCommands.GetSpecificAnimalFeedingTimeCommand;
+import commands.SpecificCommands.GetSpecificDayCommand;
+import intrefaces.ICommand;
 
 import java.util.HashMap;
 import java.util.List;
@@ -62,7 +61,7 @@ public class Parser {
     }
 
     public void getCommands(){
-        System.out.println("Commands Options:");
+        System.out.println("commands Options:");
         for( ICommand command: commandHashMap.values()){
             command.printDescription();
 

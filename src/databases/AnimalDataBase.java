@@ -1,7 +1,7 @@
-package DataBases;
+package databases;
 
 
-import Intrefaces.IAnimal;
+import intrefaces.IAnimal;
 
 import java.util.HashMap;
 
@@ -45,9 +45,9 @@ public class AnimalDataBase {
     public String getAllAnimals() {
         {
             if (animalHashMap.isEmpty()) {
-                return "no Animals";
+                return "no animals";
             }
-            StringBuilder result = new StringBuilder("Animals:\n");
+            StringBuilder result = new StringBuilder("animals:\n");
             for (IAnimal animal : animalHashMap.values()) {
 
                 result.append(animal.toString()).append("\n");

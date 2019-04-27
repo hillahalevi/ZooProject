@@ -1,6 +1,6 @@
-package Commands.InterferingCommands;
+package commands.InterferingCommands;
 
-import Commands.SpecificCommands.SpecificCommand;
+import commands.SpecificCommands.SpecificCommand;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package DataBases;
+package databases;
 
-import Animals.LandAnimal;
-import Intrefaces.IAnimal;
+import animals.LandAnimal;
+import intrefaces.IAnimal;
 
 import java.util.LinkedList;
 import java.util.List;

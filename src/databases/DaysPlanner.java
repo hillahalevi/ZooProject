@@ -1,7 +1,7 @@
-package DataBases;
+package databases;
 
-import Animals.SeaAnimal;
-import Intrefaces.IAnimal;
+import animals.SeaAnimal;
+import intrefaces.IAnimal;
 
 
 import java.util.Comparator;

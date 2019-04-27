@@ -1,8 +1,8 @@
-package Commands.InterferingCommands;
+package commands.InterferingCommands;
 
-import DataBases.AnimalDataBase;
-import DataBases.DaysPlanner;
-import Intrefaces.IAnimal;
+import databases.AnimalDataBase;
+import databases.DaysPlanner;
+import intrefaces.IAnimal;
 
 import java.util.List;
 

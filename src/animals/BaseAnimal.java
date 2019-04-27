@@ -1,6 +1,6 @@
-package Animals;
+package animals;
 
-import Intrefaces.IAnimal;
+import intrefaces.IAnimal;
 
 public abstract class BaseAnimal implements IAnimal {
     private String name;

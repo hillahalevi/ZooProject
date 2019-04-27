@@ -1,6 +1,6 @@
-package Commands.SpecificCommands;
+package commands.SpecificCommands;
 
-import Commands.BasicCommand.*;
+import commands.BasicCommand.*;
 
 import java.util.List;
 

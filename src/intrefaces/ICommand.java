@@ -1,4 +1,4 @@
-package Intrefaces;
+package intrefaces;
 
 import java.util.List;
 
