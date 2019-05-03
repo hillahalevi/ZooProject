@@ -2,48 +2,46 @@ package databases;
 
 
 
-import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class UsersDataBase {
     private static UsersDataBase ourInstance = new UsersDataBase();
 
-    private HashMap<String, UserThread> userThreadHashMap;
+    private List<String> usersList;
 
 
     private UsersDataBase() {
-        userThreadHashMap=new HashMap<>();
+        usersList =new LinkedList<>();
     }
 
     public static UsersDataBase getInstance() {
         return ourInstance;
     }
 
-    private boolean isUser(String name) {
-        return userThreadHashMap.containsKey(name);
-    }
 
     public String getUsers() {
-        if (userThreadHashMap.isEmpty()) {
+        if (usersList.isEmpty()) {
             return "no users";
         }
         StringBuilder result = new StringBuilder("Users: ");
-        for (String user : userThreadHashMap.keySet()) {
+        for (String user : usersList) {
             result.append(user).append(" | ");
 
         }
         return result.toString();
     }
 
-    public UserThread getUserThread(String name){
-            // create a new thread and register the user
-            UserThread userThread=new UserThread();
-            userThreadHashMap.put(name,userThread);
-            return userThread;
+    public void addUser(String user){
+        if(!usersList.contains(user)){
+            usersList.add(user);
+        }
 
     }
 
+
     public void exit(){
-      //  while (userThreadHashMap.values().)
+      //  while (usersList.values().)
     }
 }

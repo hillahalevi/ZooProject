@@ -5,11 +5,15 @@ import commands.SpecificCommands.SpecificCommand;
 import java.util.List;
 
 abstract class InterferingCommands extends SpecificCommand {
+
     public void execute(List<String> details) throws Exception {
+        Object lock = new Object();
         try {
-            validate(details);
-            doCommand(details);
-            printsucsses();
+            synchronized (lock) {
+                validate(details);
+                doCommand(details);
+                printsucsses();
+            }
 
         } catch (Exception e) {
             printFailure();

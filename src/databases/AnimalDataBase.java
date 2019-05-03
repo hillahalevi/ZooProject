@@ -8,6 +8,7 @@ import java.util.HashMap;
 public class AnimalDataBase {
     private static AnimalDataBase ourInstance = new AnimalDataBase();
     private HashMap<String, IAnimal> animalHashMap;
+    private Object lock;
 
     private AnimalDataBase() {
         animalHashMap = new HashMap<>();
@@ -22,6 +23,7 @@ public class AnimalDataBase {
         if (animalHashMap.containsKey(animal.getName())) {
             throw new Exception("animal already defined in the system");
         }
+
         animalHashMap.put(animal.getName(), animal);
     }
 
